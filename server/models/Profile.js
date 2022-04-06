@@ -31,6 +31,12 @@ const profileSchema = new Schema({
       ref: 'Profile',
     },
   ],
+  recipies: [
+    {
+      type: Schema.Types.ObjectID,
+      ref: 'Recipe',
+    }
+  ]
 });
 
 // set up pre-save middleware to create password
