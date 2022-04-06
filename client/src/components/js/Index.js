@@ -4,6 +4,7 @@ import Profile from "./Profile";
 import Home from "./Home";
 import Nav from "./Nav";
 import SpiceChart from "./SpiceChart";
+import SignUp from "./SignUp";
 
 module.exports = {
     Blog,
@@ -12,5 +13,6 @@ module.exports = {
     Profile,
     Nav,
     SpiceChart,
+    SignUp
 };
 
