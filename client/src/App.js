@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import SignUp from './components/js/SignUp'
 
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
           Learn React
         </a>
         <p>Hello World</p>      
-       
+       <SignUp />
       </header>
     </div>
   );
