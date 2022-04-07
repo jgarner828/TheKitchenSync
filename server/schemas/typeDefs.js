@@ -14,18 +14,18 @@ const typeDefs = gql`
   type Product {
     _id: ID
     name: String
-    quantity: Number
+    quantity: Int
     uom: String
     refrigerated: Boolean
-    expires: Date
-    purchaseDate: Date
+    expires: String
+    purchaseDate: String
   }
 
   type Recipe {
     _id: ID
     name: String
     instructions: String
-    minutes: Number
+    minutes: Int
     ingredients: [Product]
     reactions: [Reaction]
   }
@@ -34,7 +34,7 @@ const typeDefs = gql`
     _id: ID
     reactionBody: String
     username: String
-    createdAt: Date
+    createdAt: String
   }
 
   
