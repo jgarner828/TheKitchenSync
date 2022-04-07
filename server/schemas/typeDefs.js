@@ -2,6 +2,41 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
+  input ProductInput {
+    _id: ID
+    name: String
+    quantity: Int
+    uom: String
+    refrigerated: Boolean
+    expires: String
+    purchaseDate: String
+  }
+
+  input RecipeInput {
+    _id: ID
+    name: String
+    instructions: String
+    minutes: Int
+    ingredients: [ProductInput]
+    reactions: [ReactionInput]
+  }
+
+  input RecipeInput {
+    _id: ID
+    name: String
+    instructions: String
+    minutes: Int
+    ingredients: [ProductInput]
+    reactions: [ReactionInput]
+  }
+
+  input ReactionInput {
+    _id: ID
+    reactionBody: String
+    username: String
+    createdAt: String
+  }
+
   type Profile {
     _id: ID
     username: String
@@ -9,6 +44,7 @@ const typeDefs = gql`
     password: String
     kitchen: [Product]
     friends: [Profile]
+    recipes: [Recipe]
   }
 
   type Product {
@@ -37,16 +73,31 @@ const typeDefs = gql`
     createdAt: String
   }
 
+
+  type Auth {
+    token: ID!
+    profile: Profile
+  }
+
   
 
   type Query {
+    me: Profile
     profiles: [Profile]!
     profile(profileId: ID!): Profile
   }
 
+
   type Mutation {
-    addProfile(name: String!): Profile
+    addProfile(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
     removeProfile(profileId: ID!): Profile
+    addFriend(profileId: ID!, friend: String!): Profile
+    addFavRecipe(profileId: ID!, recipe: RecipeInput): Profile
+    addProduct(profileId: ID!, product: ProductInput): Profile
+    removeProduct(profileId: ID!, product: ProductInput): Profile
+
+
   }
 `;
 
