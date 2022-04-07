@@ -1,2 +1,10 @@
 import React from "react";
-import Components from "./Index";
+
+
+export default function Blog() {
+    return (
+        <div>
+            <p>Hello World</p>
+        </div>
+    )
+}
