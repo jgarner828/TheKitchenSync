@@ -37,6 +37,10 @@ const typeDefs = gql`
     createdAt: String
   }
 
+
+
+
+  
   type Profile {
     _id: ID
     username: String
