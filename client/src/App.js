@@ -7,6 +7,8 @@ import Login from './components/js/Login';
 import Home from './components/js/Home';
 import Profile from './components/js/Profile';
 import Blog from './components/js/Blog';
+import SpiceChart from './components/js/SpiceChart';
+
 import {BrowserRouter as Router, Routes, Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />           
             <Route path="/profile" element={<Profile />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/spicechart" element={<SpiceChart />} />
         </Routes>
         
           {/* <Button color="primary" variant="contained"> Press me </Button>
