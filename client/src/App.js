@@ -1,22 +1,32 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import {Button} from '@material-ui/core';
-import {TextField} from '@material-ui/core';
+// import {Button} from '@material-ui/core';
+// import {TextField} from '@material-ui/core';
 import Header from './components/js/NavBar';
 import Login from './components/js/Login';
 import Home from './components/js/Home';
-
+import Profile from './components/js/Profile';
+import Blog from './components/js/Blog';
+import {BrowserRouter as Router, Routes, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
+        
+        <Router>
+         
         <Header />
-        <br />
-       <Button color="primary" variant="contained"> Press me </Button>
-       <br /><br />
-       <TextField id="name" label="Name" variant="outlined" />
-       <Login />
-       <Home />       
+        <Routes>
+            <Route path="/" element={<Home />} />           
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/blog" element={<Blog />} />
+        </Routes>
+        
+          {/* <Button color="primary" variant="contained"> Press me </Button>
+          <TextField id="name" label="Name" variant="outlined" />
+          <Login /> */}
+       
+       </Router>     
     </div>
   );
 }

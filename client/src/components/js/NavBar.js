@@ -11,8 +11,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Profile from './Profile';
+import { Link } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Project', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
@@ -76,10 +78,16 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+              <MenuItem component={Link} to="/profile" onClick={handleCloseNavMenu} color="primary">
+                Profile
+              </MenuItem>
+              <MenuItem >AdamIsAwesome</MenuItem>
               {pages.map((page) => (
+              
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
+                
               ))}
             </Menu>
           </Box>
