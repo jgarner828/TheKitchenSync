@@ -24,6 +24,7 @@
     "@mui/styled-engine-sc": "^5.5.2",
     "bcrypt": "^5.0.1",
     "jsonwebtoken": "^8.5.1",
+    "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5"
   }
 }
