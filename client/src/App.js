@@ -4,16 +4,18 @@ import {Button} from '@material-ui/core';
 import {TextField} from '@material-ui/core';
 import Header from './components/js/NavBar';
 import Login from './components/js/Login';
+import Home from './components/js/Home';
 
 function App() {
   return (
     <div className="App">
         <Header />
-        <br />
+        {/* <br />
        <Button color="primary" variant="contained"> Press me </Button>
        <br /><br />
        <TextField id="name" label="Name" variant="outlined" />
-       <Login />
+       <Login /> */}
+       <Home />
     </div>
   );
 }

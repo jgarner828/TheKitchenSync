@@ -20,7 +20,7 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.1",
-    "@mui/material": "^5.5.3",
+    "@mui/material": "^5.6.0",
     "@mui/styled-engine-sc": "^5.5.2",
     "bcrypt": "^5.0.1",
     "jsonwebtoken": "^8.5.1",
