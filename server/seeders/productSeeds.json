@@ -1,0 +1,38 @@
+[
+    {
+        "name": "chicken",
+        "quantity": 1,
+        "uom": "each",
+        "refrigerated": true
+    },
+    {
+        "name": "bread",
+        "quantity": 1,
+        "uom": "loaf",
+        "refrigerated": false
+    },
+    {
+        "name": "noodles",
+        "quantity": 1,
+        "uom": "handful",
+        "refrigerated": false
+    },
+    {
+        "name": "cheese",
+        "quantity": 2,
+        "uom": "oz",
+        "refrigerated": true 
+    },
+    {
+        "name": "beef",
+        "quantity": 2,
+        "uom": "lbs",
+        "refrigerated": true
+    },
+    {
+        "name": "buns",
+        "quantity": 12,
+        "uom": "each",
+        "refrigerated": false
+    }
+]
