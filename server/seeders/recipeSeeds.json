@@ -1,0 +1,21 @@
+[
+    {
+      "name": "fried chicken",
+      "instructions": "mix ingredients and cook",
+      "minutes": 60,
+      "ingredients": ["chicken", "bread"]
+    },
+    {
+      "name": "macaroni and cheese",
+      "instructions": "mix ingredients and cook",
+      "minutes": 30,
+      "ingredients": ["noodles", "cheese"]
+    },
+    {
+      "name": "hamburger",
+      "instructions": "mix ingredients and cook",
+      "minutes": 45,
+      "ingredients": ["beef", "buns"]
+    }
+  ]
+  
