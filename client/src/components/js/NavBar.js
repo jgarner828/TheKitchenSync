@@ -15,9 +15,9 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
 
-const pages = ['testtt', 'testt', 'test'];
+const pages = ['Profile', 'Login', 'Blog'];
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile','Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -62,6 +62,7 @@ const Header = () => {
             >
               <MenuIcon />
             </IconButton>
+            
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -80,7 +81,7 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <MenuItem component={Link} to="/profile" onClick={handleCloseNavMenu} color="primary">
+              {/* <MenuItem component={Link} to="/profile" onClick={handleCloseNavMenu} color="primary">
                 Profile
               </MenuItem>
 
@@ -92,15 +93,15 @@ const Header = () => {
               </MenuItem>
               <MenuItem component={Link} to="/spicechart" onClick={handleCloseNavMenu} color="primary">
                 Spice Chart
-              </MenuItem>
+              </MenuItem> */}
 
               {pages.map((page) => (
-              
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+               <Link key={page}  to={`/${page}`}>
+                <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-                
-              ))}
+                </Link>
+              ))}              
             </Menu>
           </Box>
           <Typography
@@ -113,13 +114,14 @@ const Header = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
+              <Link key={page}  to={`/${page}`}>
+              <Button                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
+              </Link>
             ))}
           </Box>
 
@@ -146,9 +148,11 @@ const Header = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <Link key={setting}  to={`/${setting}`}>
+                <MenuItem  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
