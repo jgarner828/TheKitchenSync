@@ -1,0 +1,77 @@
+/* Home page */
+
+/* Home Page header fonts */
+
+.headerTxt-div {
+    background-color: red;
+    color: white;
+    max-width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    border-style: solid;
+    border-radius: 20px;
+    transform: translate3d(0px, -60px, 0px);
+}
+
+.headerTxt {
+    font-size: 2rem;
+    margin: 10px;
+}
+
+.sloganTxt {
+    font-size: 1.2rem;
+    color: yellow;
+}
+
+@media (max-width: 1200px) {
+    .headerTxt {
+        font-size: 1.5em;
+    }
+    .sloganTxt {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .headerTxt {
+        font-size: 1.2rem;
+    }
+    .sloganTxt {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .headerTxt-div {
+        transform: translate3d(0px, -35px, 0px);
+    }
+    .headerTxt {
+        font-size: 1rem;
+    }
+    .sloganTxt {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .headerTxt {
+        font-size: 0.9rem;
+    }
+    .sloganTxt {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .headerTxt-div {
+        transform: translate3d(0px, -10px, 0px);
+    }
+    .headerTxt {
+        font-size: 0.8rem;
+    }
+}
+
+/* End Homepage header fonts */
+
+/* End Homepage */
