@@ -18,11 +18,13 @@ function App() {
         <Router>
          
         <Header />
+        <SpiceChart />
+        {/* Add spice chart to profile page? */}
+      
         <Routes>
             <Route path="/" element={<Home />} />           
             <Route path="/profile" element={<Profile />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/spicechart" element={<SpiceChart />} />
         </Routes>
         
           {/* <Button color="primary" variant="contained"> Press me </Button>

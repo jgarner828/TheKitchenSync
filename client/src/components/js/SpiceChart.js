@@ -1,18 +1,20 @@
 import '../css/spiceChart.css';
-import * as d3 from 'd3'
-import {useEffect} from 'react'
+import * as d3 from 'd3';
+import {useEffect} from 'react';
 
 function SpiceChart() {
   
   useEffect(() => {
 
       // Create a dataset of pets and the amount of people that own them
+      // replace data with data from query!!!! 
       let dataSet = [
         {subject: "Dogs", count: 150},
         {subject: "Fish", count: 75},
         {subject: "Cats", count: 135},
         {subject: "Bunnies", count: 240},
       ]
+
       // Generate a p tag for each element in the dataSet with the text: Subject: Count 
       d3.select('#pgraphs').selectAll('p').data(dataSet).enter().append('p').text(dt => dt.subject + ": " + dt.count)
       
@@ -41,8 +43,10 @@ function SpiceChart() {
 
   return (
     <div className = "App">
-      <div id="pgraphs"></div> // Create a div to house our p tags
-      <div id="BarChart"></div> // Create a div to house our BarChart
+      {/* // Create a div to house our p tags */}
+      <div id="pgraphs"></div> 
+      {/* // Create a div to house our BarChart */}
+      <div id="BarChart"></div> 
     </div>
   );
 }
