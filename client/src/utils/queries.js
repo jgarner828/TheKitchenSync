@@ -18,10 +18,12 @@ export const ONE_PROFILE = gql`
   }
 `;
 export const MY_PROFILE = gql`
-  query me {
-    profiles {
-      _id
-      username
+  query me(profileId: $profileId) {
+    me {
+      profile {
+        _id
+        username
+      }
     }
   }
 `;
