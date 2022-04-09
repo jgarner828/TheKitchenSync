@@ -11,11 +11,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import Profile from './Profile';
+
 import { Link } from 'react-router-dom';
 
 
-import { Link } from 'react-router-dom';
 const pages = ['testtt', 'testt', 'test'];
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
