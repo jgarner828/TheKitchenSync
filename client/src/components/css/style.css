@@ -1,11 +1,9 @@
 /* Home page */
 
-/* Home Page header fonts */
-
 .headerTxt-div {
     background-color: red;
     color: white;
-    max-width: 50%;
+    max-width: 40%;
     margin-right: auto;
     margin-left: auto;
     text-align: center;
@@ -24,6 +22,49 @@
     color: yellow;
 }
 
+.missionHead {
+    color: yellow;
+    margin-top: 5px;
+}
+
+.missionTxt {
+    color: white;
+    padding: 1em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.discoverHead {
+    font-size: 2rem;
+    margin: 0;
+    color: white;
+}
+
+.discoverTxt {
+    font-size: 1.2rem;
+    margin: 0;
+    color: white;
+}
+
+.discoverBtn {
+    width: 40%;
+    margin-top: 1em;
+    background-color: #52496F;
+}
+
+.discoverBtn:hover {
+    background-color: white;
+    color: black;
+}
+
+.topHeader {
+    font-size: 2rem;
+    background-color: #DC5656;
+    color: white;
+}
+
 @media (max-width: 1200px) {
     .headerTxt {
         font-size: 1.5em;
@@ -33,11 +74,26 @@
     }
 }
 
+@media (max-width: 976px) {
+    .missionHead {
+        font-size: 1.2rem;
+    }
+    .missionTxt {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .headerTxt {
         font-size: 1.2rem;
     }
     .sloganTxt {
+        font-size: 0.9rem;
+    }
+    .missionHead {
+        font-size: 1rem;
+    }
+    .missionTxt {
         font-size: 0.9rem;
     }
 }
@@ -52,6 +108,9 @@
     .sloganTxt {
         font-size: 0.8rem;
     }
+    .missionTxt {
+        font-size: 0.8rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -59,6 +118,12 @@
         font-size: 0.9rem;
     }
     .sloganTxt {
+        font-size: 0.7rem;
+    }
+    .missionHead {
+        font-size: 0.9rem;
+    }
+    .missionTxt {
         font-size: 0.7rem;
     }
 }
@@ -70,8 +135,14 @@
     .headerTxt {
         font-size: 0.8rem;
     }
+    .missionHead {
+        font-size: 0.7rem;
+    }
+    .missionTxt {
+        font-size: 0.6rem;
+    }
 }
 
-/* End Homepage header fonts */
+
 
 /* End Homepage */
