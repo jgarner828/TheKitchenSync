@@ -18,7 +18,7 @@ function App() {
         <Router>
          
         <Header />
-        <SpiceChart />
+        {/* <SpiceChart /> */}
         {/* Add spice chart to profile page? */}
       
         <Routes>
