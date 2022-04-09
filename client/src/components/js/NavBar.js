@@ -11,10 +11,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-
+import Profile from './Profile';
 import { Link } from 'react-router-dom';
 
+
+import { Link } from 'react-router-dom';
 const pages = ['testtt', 'testt', 'test'];
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
@@ -81,6 +84,7 @@ const Header = () => {
               <MenuItem component={Link} to="/profile" onClick={handleCloseNavMenu} color="primary">
                 Profile
               </MenuItem>
+
               <MenuItem component={Link} to="/blog" onClick={handleCloseNavMenu} color="primary">
                 Blog
               </MenuItem>
@@ -90,6 +94,7 @@ const Header = () => {
               <MenuItem component={Link} to="/spicechart" onClick={handleCloseNavMenu} color="primary">
                 Spice Chart
               </MenuItem>
+
               {pages.map((page) => (
               
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
