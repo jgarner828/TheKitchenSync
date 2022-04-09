@@ -19,6 +19,9 @@ function App() {
         <Router>
          
         <Header />
+        {/* <SpiceChart /> */}
+        {/* Add spice chart to profile page? */}
+      
         <Routes>
             <Route path="/" element={<Home />} />           
             <Route path="/profile" element={<Profile />} />
