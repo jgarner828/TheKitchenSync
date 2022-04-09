@@ -22,7 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />           
             <Route path="/profile" element={<Profile />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/spicechart" element={<SpiceChart />} />
+            <Route path="/login" element={<Login />} />
         </Routes>
         
           {/* <Button color="primary" variant="contained"> Press me </Button>
