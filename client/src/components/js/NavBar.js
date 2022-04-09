@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 import { Link } from 'react-router-dom';
 
-const pages = ['Project', 'Pricing', 'Blog'];
+const pages = ['testtt', 'testt', 'test'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
@@ -81,7 +81,15 @@ const Header = () => {
               <MenuItem component={Link} to="/profile" onClick={handleCloseNavMenu} color="primary">
                 Profile
               </MenuItem>
-              <MenuItem >AdamIsAwesome</MenuItem>
+              <MenuItem component={Link} to="/blog" onClick={handleCloseNavMenu} color="primary">
+                Blog
+              </MenuItem>
+              <MenuItem component={Link} to="/login" onClick={handleCloseNavMenu} color="primary">
+                Login
+              </MenuItem>
+              <MenuItem component={Link} to="/spicechart" onClick={handleCloseNavMenu} color="primary">
+                Spice Chart
+              </MenuItem>
               {pages.map((page) => (
               
                 <MenuItem key={page} onClick={handleCloseNavMenu}>

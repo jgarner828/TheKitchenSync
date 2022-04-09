@@ -7,6 +7,9 @@ export default function Profile() {
         <>        
         <div>
             Hello World!
+            <h1>
+                This is the Profile Page
+            </h1>
         </div>        
         </>
     )
