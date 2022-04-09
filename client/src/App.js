@@ -1,16 +1,37 @@
-import React, { Component } from 'react';
+// import logo from './logo.svg';
+import './App.css';
+// import {Button} from '@material-ui/core';
+// import {TextField} from '@material-ui/core';
+import Header from './components/js/NavBar';
 import Login from './components/js/Login';
+import Home from './components/js/Home';
+import Profile from './components/js/Profile';
+import Blog from './components/js/Blog';
+import SpiceChart from './components/js/SpiceChart';
 
+import {BrowserRouter as Router, Routes, Switch, Route} from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Login />
-
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+        
+        <Router>
+         
+        <Header />
+        <Routes>
+            <Route path="/" element={<Home />} />           
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/spicechart" element={<SpiceChart />} />
+        </Routes>
+        
+          {/* <Button color="primary" variant="contained"> Press me </Button>
+          <TextField id="name" label="Name" variant="outlined" />
+          <Login /> */}
+       
+       </Router>     
+    </div>
+  );
 }
 
 export default App;
