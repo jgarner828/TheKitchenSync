@@ -38,8 +38,6 @@ const typeDefs = gql`
   }
 
 
-
-
   
   type Profile {
     _id: ID
@@ -89,19 +87,18 @@ const typeDefs = gql`
     me: Profile
     profiles: [Profile]!
     profile(profileId: ID!): Profile
+    recipe: Recipe
+    recipes: [Recipe]
   }
 
 
   type Mutation {
     addProfile(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    removeProfile(profileId: ID!): Profile
     addFriend(profileId: ID!, friend: String!): Profile
     addFavRecipe(profileId: ID!, recipe: RecipeInput): Profile
     addProduct(profileId: ID!, product: ProductInput): Profile
     removeProduct(profileId: ID!, product: ProductInput): Profile
-
-
   }
 `;
 

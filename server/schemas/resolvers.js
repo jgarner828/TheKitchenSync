@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile } = require('../models');
+const { Profile, Recipe } = require('../models');
 const { signToken } = require('../utils/auth');
 
 
@@ -19,6 +19,12 @@ const resolvers = {
         return Profile.findOne({ _id: context.profile._id });
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    recipes: async () => {
+      return Recipe.find();
+    },
+    recipe: async (parent, { recipeId }) => {
+      return Recipe.findOne({ _id: recipeId });
     },
   },
 
@@ -45,10 +51,6 @@ const resolvers = {
 
       const token = signToken(profile);
       return { token, profile };
-    },
-
-    removeProfile: async (parent, { profileId }) => {
-      return Profile.findOneAndDelete({ _id: profileId });
     },
 
     addFriend: async (parent, { profileId, friend }) => {
