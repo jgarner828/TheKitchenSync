@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from '../images/logo.png'
 
+
 import { Link } from 'react-router-dom';
 
 
@@ -49,7 +50,9 @@ const Header = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
+            <Link style={{ textDecoration: 'none' }} to="/">
             <img src={Logo} alt="Logo" width="100px"/>
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -97,8 +100,8 @@ const Header = () => {
               </MenuItem> */}
 
               {pages.map((page) => (
-               <Link key={page}  to={`/${page}`}>
-                <MenuItem onClick={handleCloseNavMenu}>
+               <Link key={page} style={{ textDecoration: 'none' }} to={`/${page}`}>
+                <MenuItem style={{ textDecoration: 'none' }} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
                 </Link>
@@ -111,11 +114,13 @@ const Header = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            <Link style={{ textDecoration: 'none' }} to="/">
+            <img src={Logo} alt="Logo" width="100px"/>
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link key={page}  to={`/${page}`}>
+              <Link key={page} style={{ textDecoration: 'none' }} to={`/${page}`}>
               <Button                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -149,7 +154,7 @@ const Header = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <Link key={setting}  to={`/${setting}`}>
+                <Link key={setting} style={{ textDecoration: 'none' }} to={`/${setting}`}>
                 <MenuItem  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
