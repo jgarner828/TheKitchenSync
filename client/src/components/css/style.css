@@ -48,12 +48,6 @@
     color: white;
 }
 
-.discoverBtn {
-    width: 40%;
-    margin-top: 1em;
-    background-color: #52496F;
-}
-
 .discoverBtn:hover {
     background-color: white;
     color: black;

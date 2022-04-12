@@ -4,9 +4,6 @@ import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import { Typography } from "@mui/material";
-import { ThemeProvider } from "styled-components";
 import css from '../css/style.css';
 import ImageList from "./ImageList";
 
@@ -30,9 +27,25 @@ const styles = {
         'backgroundColor': 'purple',
         'borderRadius': '15px',
     },
+    discoverBtn: {
+        'backgroundColor': '#52496F',
+        'width': '40%',
+        'marginTop': '1em',
+    },
 }
 
 export default function Home() {
+
+    function mouseOver(e) {
+        e.target.style.background = 'white';
+        e.target.style.color = '#52496F';
+    }
+
+    function mouseOut(e) {
+        e.target.style.background = '#52496F';
+        e.target.style.color = 'white';
+    }
+
     return (
         <React.Fragment>
             <CssBaseline />
@@ -57,7 +70,7 @@ export default function Home() {
                 <CardContent>
                     <h2 className="discoverHead">Discover</h2>
                     <p className="discoverTxt">Discover more recipes by visiting our recipes page!</p>
-                    <Button className="discoverBtn" variant="contained" href="#contained-buttons">
+                    <Button onMouseOver={mouseOver} onMouseLeave={mouseOut} variant="contained"  style={styles.discoverBtn} href="#contained-buttons">
                         Discover
                     </Button>
                 </CardContent>
