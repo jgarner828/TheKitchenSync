@@ -4,7 +4,6 @@ const dateFormat = require('../utils/dateFormat');
 const productSchema = new Schema({
     name: {
         type: String,
-        required: true,
     },
     quantity: {
         type: Number,

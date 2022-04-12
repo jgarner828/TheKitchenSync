@@ -36,6 +36,7 @@ const typeDefs = gql`
 
   
   type Profile {
+    _id: ID
     username: String
     email: String
     password: String
@@ -46,6 +47,7 @@ const typeDefs = gql`
 
   
   type Product {
+    _id: ID
     name: String
     quantity: Int
     uom: String
@@ -56,6 +58,7 @@ const typeDefs = gql`
 
 
   type Recipe {
+    _id: ID
     name: String
     instructions: String
     minutes: Int

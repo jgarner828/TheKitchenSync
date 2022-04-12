@@ -162,12 +162,23 @@ export const KITCHEN_REMOVE_PRODUCT = gql`
         friends
         recipes
       }
+    }
   }
 `;
 
 
 export const ADD_PRODUCT = gql`
-
+mutation Mutation($product: ProductInput) {
+  addProduct(product: $product) {
+    _id
+    name
+    quantity
+    uom
+    refrigerated
+    expires
+    purchaseDate
+  }
+}
 `;
 export const ADD_RECIPE = gql`
 

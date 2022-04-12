@@ -75,10 +75,11 @@ const resolvers = {
       );
     },
 
-    addProduct: async (parent, { name, quantity, oum, refrigerated, expires }) => {
+    addProduct: async (parent, { product: {name, quantity, oum, refrigerated, expires} }) => {
+
       const product = await Product.create({  name, quantity, oum, refrigerated, expires  });
       
-      return { product };
+      return product;
 
     },
 
