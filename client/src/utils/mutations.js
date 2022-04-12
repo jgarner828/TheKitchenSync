@@ -91,7 +91,6 @@ mutation login($email: String!, $password: String!) {
 `;
 
 
-
 export const ADD_FRIEND = gql`
 mutation Mutation($profileId: ID!, $friend: String!) {
   addFriend(profileId: $profileId, friend: $friend) {
@@ -139,8 +138,8 @@ mutation Mutation($profileId: ID!, $friend: String!) {
 `;
 
 
-export const ADD_PRODUCT = gql`
-  mutation addProduct($profileId: String!, $product: ProductInput) {
+export const KITCHEN_ADD_PRODUCT = gql`
+  mutation addProduct($profileId: String!, $productId: ID!) {
     addProduct(profileId: $profileId, product: $product) {
       profile {
         _id
@@ -153,8 +152,8 @@ export const ADD_PRODUCT = gql`
   }
 `;
 
-export const REMOVE_PRODUCT = gql`
-  mutation removeProduct($profileId: String!, $product: ProductInput) {
+export const KITCHEN_REMOVE_PRODUCT = gql`
+  mutation removeProduct($profileId: String!, $productId: ID!) {
     removeProduct(profileId: $profileId, product: $product) {
       profile {
         _id
@@ -167,6 +166,9 @@ export const REMOVE_PRODUCT = gql`
 `;
 
 
+export const ADD_PRODUCT = gql`
+
+`;
 export const ADD_RECIPE = gql`
 
 `;

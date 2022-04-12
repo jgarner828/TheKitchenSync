@@ -3,7 +3,6 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
 
   input ProductInput {
-    _id: ID
     name: String
     quantity: Int
     uom: String
@@ -13,7 +12,6 @@ const typeDefs = gql`
   }
 
   input RecipeInput {
-    _id: ID
     name: String
     instructions: String
     minutes: Int
@@ -22,7 +20,6 @@ const typeDefs = gql`
   }
 
   input RecipeInput {
-    _id: ID
     name: String
     instructions: String
     minutes: Int
@@ -31,7 +28,6 @@ const typeDefs = gql`
   }
 
   input ReactionInput {
-    _id: ID
     reactionBody: String
     username: String
     createdAt: String
@@ -40,7 +36,6 @@ const typeDefs = gql`
 
   
   type Profile {
-    _id: ID
     username: String
     email: String
     password: String
@@ -49,8 +44,8 @@ const typeDefs = gql`
     recipes: [Recipe]
   }
 
+  
   type Product {
-    _id: ID
     name: String
     quantity: Int
     uom: String
@@ -59,14 +54,15 @@ const typeDefs = gql`
     purchaseDate: String
   }
 
+
   type Recipe {
-    _id: ID
     name: String
     instructions: String
     minutes: Int
     ingredients: [Product]
     reactions: [Reaction]
   }
+
 
   type Reaction {
     _id: ID
@@ -98,8 +94,9 @@ const typeDefs = gql`
     addProfile(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addFriend(profileId: ID!, friend: String!): Profile
-    addProduct(profileId: ID!, product: ProductInput): Profile
-    removeProduct(profileId: ID!, product: ProductInput): Profile
+    kitchenAddProduct(profileId: ID!, productId: ID!): Profile
+    kitchenRemoveProduct(profileId: ID!, productId: ID!): Profile
+    addProduct(product: ProductInput)
     addRecipe(recipe: RecipeInput): Recipe
     addFavRecipe(profileId: ID!, recipe: RecipeInput): Profile
   }

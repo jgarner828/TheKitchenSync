@@ -75,11 +75,18 @@ const resolvers = {
       );
     },
 
-    addProduct: async (parent, { profileId, product }) => {
+    addProduct: async (parent, { name, quantity, oum, refrigerated, expires }) => {
+      const product = await Product.create({  name, quantity, oum, refrigerated, expires  });
+      
+      return { product };
+
+    },
+
+    kitchenAddProduct: async (parent, { profileId, productId }) => {
       return Profile.findOneAndUpdate(
         { _id: profileId },
         {
-          $addToSet: { kitchen: product },
+          $addToSet: { kitchen: productId },
         },
         {
           new: true,
@@ -88,11 +95,11 @@ const resolvers = {
       );
     },
 
-    removeProduct: async (parent, {profileId, product}) => {
+    kitchenRemoveProduct: async (parent, {profileId, productId}) => {
       return Profile.findOneAndUpdate(
         { _id: profileId },
         {
-          $pull: { kitchen: product },
+          $pull: { kitchen: productId },
         },
         {
           new: true,
