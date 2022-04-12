@@ -87,8 +87,10 @@ const typeDefs = gql`
     me: Profile
     profiles: [Profile]!
     profile(profileId: ID!): Profile
-    recipe: Recipe
+    products: [Product]!
+    product(productId: ID!): Product
     recipes: [Recipe]
+    recipe: Recipe
   }
 
 
@@ -96,9 +98,10 @@ const typeDefs = gql`
     addProfile(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addFriend(profileId: ID!, friend: String!): Profile
-    addFavRecipe(profileId: ID!, recipe: RecipeInput): Profile
     addProduct(profileId: ID!, product: ProductInput): Profile
     removeProduct(profileId: ID!, product: ProductInput): Profile
+    addRecipe(recipe: RecipeInput): Recipe
+    addFavRecipe(profileId: ID!, recipe: RecipeInput): Profile
   }
 `;
 

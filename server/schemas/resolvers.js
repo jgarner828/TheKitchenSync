@@ -20,6 +20,15 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    products: async () => {
+      return Product.find();
+    },
+
+    product: async (parent, { productId }) => {
+      return Product.findOne({ _id: productId });
+    },
+    
     recipes: async () => {
       return Recipe.find();
     },
@@ -66,19 +75,6 @@ const resolvers = {
       );
     },
 
-    addFavRecipe: async (parent, { profileId, recipe }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        {
-          $addToSet: { recipes: recipe },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
-
     addProduct: async (parent, { profileId, product }) => {
       return Profile.findOneAndUpdate(
         { _id: profileId },
@@ -104,6 +100,29 @@ const resolvers = {
         }
       );
     },
+
+    addRecipe: async (parent, { name, instructions, minutes }) => {
+      return Recipe.create({ name, instructions, minutes, ingredients });
+    },
+
+    addFavRecipe: async (parent, { profileId, recipe }) => {
+      return Profile.findOneAndUpdate(
+        { _id: profileId },
+        {
+          $addToSet: { recipes: recipe },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+
+
+
+
+
+
 
   }
 };
