@@ -2,24 +2,33 @@ import React from "react";
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { Typography } from "@mui/material";
 import { ThemeProvider } from "styled-components";
 import css from '../css/style.css';
+import ImageList from "./ImageList";
 
 const styles = {
     mainImage: {
-        'maxWidth': '65%',
+        'maxWidth': '80%',
         'borderRadius': '10px',
         'marginTop': '0.5em',
     },
-    customCard: {
-        'maxWidth': '50%',
+    missionCard: {
         'marginLeft': 'auto',
         'marginRight': 'auto',
+        'marginBottom': '2.5em',
+        'backgroundColor': 'gray',
+        'borderRadius': '15px',
+    },
+    discoverCard: {
+        'marginLeft': 'auto',
+        'marginRight': 'auto',
+        'marginTop': '1em',
+        'backgroundColor': 'purple',
+        'borderRadius': '15px',
     },
 }
 
@@ -35,25 +44,26 @@ export default function Home() {
                 <p className="headerTxt">The Kitchen Sync</p>
                 <p className="sloganTxt">Drippin In Recipes</p>
             </div>
-            <Card style={ styles.customCard } sx={{ maxWidth: 275 }}>
-            <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                Word of the Day
-                </Typography>
-                <Typography variant="h5" component="div">
-                benevolent
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
-                </Typography>
-                <Typography variant="body2">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
-                </Typography>
-            </CardContent>
-            </Card>
-            
+            <div>
+                <Card style={ styles.missionCard } sx={{ maxWidth: 700 }}>
+                <CardContent>
+                    <h2 className="missionHead">Our Mission Statement</h2>
+                    <p className="missionTxt">It's a fact, everyone loves food! We here at The Kitchen Sync want to help you find all the favorite recipes that you will enjoy! Everyone else in your life will love you even more when you make them some amazing tasting and looking food!</p>
+                </CardContent>
+                </Card>
+
+                <ImageList />
+                <Card style={ styles.discoverCard } sx={{ maxWidth: 1250 }}>
+                <CardContent>
+                    <h2 className="discoverHead">Discover</h2>
+                    <p className="discoverTxt">Discover more recipes by visiting our recipes page!</p>
+                    <Button className="discoverBtn" variant="contained" href="#contained-buttons">
+                        Discover
+                    </Button>
+                </CardContent>
+                </Card>
+
+            </div>
             </Container>
         </React.Fragment>
             

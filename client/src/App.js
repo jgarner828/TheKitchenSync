@@ -7,9 +7,10 @@ import Login from './components/js/Login';
 import Home from './components/js/Home';
 import Profile from './components/js/Profile';
 import Blog from './components/js/Blog';
+import SignUp from './components/js/SignUp';
 import SpiceChart from './components/js/SpiceChart';
 
-import {BrowserRouter as Router, Routes, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
@@ -18,11 +19,16 @@ function App() {
         <Router>
          
         <Header />
+        {/* <SpiceChart /> */}
+        {/* Add spice chart to profile page? */}
+      
         <Routes>
             <Route path="/" element={<Home />} />           
             <Route path="/profile" element={<Profile />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/spicechart" element={<SpiceChart />} />
         </Routes>
         
           {/* <Button color="primary" variant="contained"> Press me </Button>
