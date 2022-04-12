@@ -96,7 +96,7 @@ const typeDefs = gql`
     addFriend(profileId: ID!, friend: String!): Profile
     kitchenAddProduct(profileId: ID!, productId: ID!): Profile
     kitchenRemoveProduct(profileId: ID!, productId: ID!): Profile
-    addProduct(product: ProductInput)
+    addProduct(product: ProductInput): Product
     addRecipe(recipe: RecipeInput): Recipe
     addFavRecipe(profileId: ID!, recipe: RecipeInput): Profile
   }

@@ -42,7 +42,7 @@ mutation addProfile($username: String!, $email: String!, $password: String!) {
 }
 `;
 
-
+ 
 export const LOGIN = gql`
 mutation login($email: String!, $password: String!) {
   login(email: $email, password: $password) {
