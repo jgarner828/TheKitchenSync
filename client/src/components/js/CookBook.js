@@ -4,20 +4,37 @@ import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
 const images = [
   {
-    url: '/static/images/buttons/breakfast.jpg',
-    title: 'Breakfast',
+    url: 'https://www.angelofthewinds.com/wp-content/uploads/2021/01/Playa-BonitaBLOG.jpg',
+    title: 'Mexican',
     width: '33.33%',
   },
   {
-    url: '/static/images/buttons/burgers.jpg',
-    title: 'Burgers',
+    url: 'https://zhenweinyc.com/wp-content/uploads/2019/08/5-Signature-Dishes-of-Authentic-Chinese-Food.jpg',
+    title: 'Chinese',
     width: '33.33%',
   },
   {
-    url: '/static/images/buttons/camera.jpg',
-    title: 'Camera',
+    url: 'http://cdn.cnn.com/cnnnext/dam/assets/150813135423-korea-food-map-bibimbap.jpg',
+    title: 'Korean',
+    width: '33.33%',
+  },
+  {
+    url: 'https://thertwguys.com/wp-content/uploads/2019/05/japanese-food-ramen-2-1600x900.jpg',
+    title: 'Japanese',
+    width: '33.33%',
+  },
+  {
+    url: 'https://i0.wp.com/thatanxioustraveller.com/wp-content/uploads/2018/05/germany_sauerkraut_1.jpg?resize=960%2C720&ssl=1',
+    title: 'German',
+    width: '33.33%',
+  },
+  {
+    url: 'https://www.bonappetour.com/blog/wp-content/uploads/2015/03/1426576690-7820792-1030x521.jpeg',
+    title: 'Italian',
     width: '33.33%',
   },
 ];
