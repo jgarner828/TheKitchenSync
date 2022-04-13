@@ -6,7 +6,7 @@ import Header from './components/js/NavBar';
 import Login from './components/js/Login';
 import Home from './components/js/Home';
 import Profile from './components/js/Profile';
-import Blog from './components/js/Blog';
+import CookBook from './components/js/CookBook';
 import SignUp from './components/js/SignUp';
 import SpiceChart from './components/js/SpiceChart';
 
@@ -58,7 +58,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />} />           
             <Route path="/profile" element={<Profile />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/cookbook" element={<CookBook />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/spicechart" element={<SpiceChart />} />

@@ -180,13 +180,29 @@ mutation Mutation($product: ProductInput) {
   }
 }
 `;
-
-// export const ADD_RECIPE = gql`
-
-// `;
+export const ADD_RECIPE = gql`
+mutation Mutation($recipe: RecipeInput) {
+  addRecipe(recipe: $recipe) {
+    _id
+    name
+    instructions
+    minutes
+    reactions {
+      _id
+      reactionBody
+      username
+      createdAt
+    }
+    ingredients {
+      _id
+ 
+    }
+  }
+}
+`;
 
 export const ADD_FAV_RECIPE = gql`
-  mutation addFavRecipe($profileId: String!, $recipe: RecipeInput!) {
+  mutation addFavRecipe($profileId: String!, $recipeId: ID!) {
     profile {
       _id
       username
