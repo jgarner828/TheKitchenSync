@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,6 +12,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 function Copyright(props) {
   return (
@@ -29,18 +35,47 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
-  const handleSubmit = (event) => {
+
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [login] = useMutation(LOGIN);
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+    const form = event.currentTarget;
+   
+    
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const { data } = await login({
+        variables: { ...userFormData },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+      setShowAlert(true);
+    }
+
+    setUserFormData({
+      username: '',
+      email: '',
+      password: '',
     });
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs">      
         <CssBaseline />
         <Box
           sx={{
@@ -56,7 +91,8 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} noValidate validated={validated} sx={{ mt: 1 }}>
+            
             <TextField
               margin="normal"
               required
@@ -66,6 +102,8 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={handleInputChange}
+              value={userFormData.email}
             />
             <TextField
               margin="normal"
@@ -76,6 +114,8 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleInputChange}
+              value={userFormData.password}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -83,6 +123,7 @@ export default function Login() {
             />
             <Button
               type="submit"
+              disabled={!(userFormData.email && userFormData.password)}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}

@@ -180,9 +180,10 @@ mutation Mutation($product: ProductInput) {
   }
 }
 `;
-export const ADD_RECIPE = gql`
 
-`;
+// export const ADD_RECIPE = gql`
+
+// `;
 
 export const ADD_FAV_RECIPE = gql`
   mutation addFavRecipe($profileId: String!, $recipe: RecipeInput!) {
