@@ -22,7 +22,7 @@ function Header(props) {
       <AppBar component="div" color="default" position="static" elevation={0} sx={{ zIndex: 0 }}>
         <Tabs value={0} textColor="inherit">
           <Tab label="Spice Chart" />
-          <Tab label="Example" />
+          <Tab label="My Kitchen" />
           <Tab label="What goes here?" />
           <Tab label="Prob dont need this" />
         </Tabs>
