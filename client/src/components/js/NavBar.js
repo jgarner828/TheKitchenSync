@@ -17,7 +17,7 @@ import Logo from '../images/logo.png'
 import { Link } from 'react-router-dom';
 
 
-const pages = ['Profile', 'Login', 'Blog'];
+const pages = ['Profile', 'Login', 'CookBook'];
 
 const settings = ['Profile','Account', 'Dashboard', 'Logout'];
 
