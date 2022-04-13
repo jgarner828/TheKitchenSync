@@ -109,8 +109,10 @@ const resolvers = {
       );
     },
 
-    addRecipe: async (parent, { name, instructions, minutes }) => {
-      return Recipe.create({ name, instructions, minutes, ingredients });
+    addRecipe: async (parent, { recipe: {name, instructions, minutes, ingredients} }) => {
+      const recipe = await Recipe.create({ name, instructions, minutes, ingredients });
+
+      return recipe;
     },
 
     addFavRecipe: async (parent, { profileId, recipe }) => {

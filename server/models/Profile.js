@@ -31,7 +31,7 @@ const profileSchema = new Schema({
       ref: 'Profile',
     },
   ],
-  recipies: [
+  recipes: [
     {
       type: Schema.Types.ObjectID,
       ref: 'Recipe',

@@ -11,21 +11,15 @@ const typeDefs = gql`
     purchaseDate: String
   }
 
-  input RecipeInput {
-    name: String
-    instructions: String
-    minutes: Int
-    ingredients: [ProductInput]
-    reactions: [ReactionInput]
-  }
 
   input RecipeInput {
     name: String
     instructions: String
     minutes: Int
-    ingredients: [ProductInput]
+    ingredients: [ID]
     reactions: [ReactionInput]
   }
+
 
   input ReactionInput {
     reactionBody: String
