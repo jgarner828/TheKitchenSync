@@ -22,9 +22,10 @@ function Header(props) {
       <AppBar component="div" color="default" position="static" elevation={0} sx={{ zIndex: 0 }}>
         <Tabs value={0} textColor="inherit">
           <Tab label="Spice Chart" />
-          <Tab label="My Kitchen" />
-          <Tab label="What goes here?" />
-          <Tab label="Prob dont need this" />
+          <Tab label="My Kitchen" /> 
+          <Tab label="Add Product" />
+          <Tab label="Add Recipe" />
+          <Tab label="Generate Recipe" />
         </Tabs>
       </AppBar>
     </React.Fragment>
