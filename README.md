@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+TheKitchenSync
+
+Contributors:
+https://github.com/jesshaff
+https://github.com/Kovaceva11
+https://github.com/AWonka
+=======
 # The Kitchen Sync
 <br>
 
@@ -53,3 +61,4 @@ This project is licensed under the MIT license.
 
 https://opensource.org/licenses/MIT
 
+>>>>>>> 375eab472decffbb1389c5b721d2ad1232027d71
