@@ -18,7 +18,7 @@ MERN stack application - The Kitchen Sync is a user friendly web application tha
 * [License](#License)
 
 
-## Description
+## Application
 [Deployed Link](https://thekitchensync.herokuapp.com/)
 
 *--Screenshots to go here--* 
