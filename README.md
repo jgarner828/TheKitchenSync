@@ -4,19 +4,24 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-MERN stack application - The Kitchen Sync is a user friendly web application that was built to sync your kitchen to your phone to help keep track of the ingredients you have in your kitchen, and provide recipes based of the ingredients that the user has readily available.
+MERN stack application - The Kitchen Sync is a user friendly web application that was built to sync your kitchen to your phone to help keep track of the ingredients you have in your kitchen, and provide recipes based off the ingredients that the user has readily available.
 
 <br>
 
-[Deployed Link](https://thekitchensync.herokuapp.com/)
-
 ## Table of Contents
+* [Application](#Application)
 * [Installation](#Installation)
 * [Usage](#Usage)
 * [Contributing](#Contributing)
 * [Tests](#Test)
 * [Contributors](#Contributors)    
 * [License](#License)
+
+
+## Application
+[Deployed Link](https://thekitchensync.herokuapp.com/)
+
+*--Screenshots to go here--* 
 
 ## Installation
 Run the following command to install all necessary dependencies:
