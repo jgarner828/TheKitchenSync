@@ -6,6 +6,10 @@
 ## Description
 MERN stack application - The Kitchen Sync is a user friendly web application that was built to sync your kitchen to your phone to help keep track of the ingredients you have in your kitchen, and provide recipes based of the ingredients that the user has readily available.
 
+<br>
+
+[Deployed Link](https://thekitchensync.herokuapp.com/)
+
 ## Table of Contents
 * [Installation](#Installation)
 * [Usage](#Usage)
@@ -21,7 +25,7 @@ npm install
 ```
 
 ## Usage
-This is a react application with multiple node dependencies isntalled - please review the package.json file to ensure all necessary depencies are installed.
+This is a react application with multiple node dependencies installed - please review the package.json file to ensure all necessary dependencies are installed.
 
 ## Contributing
 No contributions are needed at this time.
