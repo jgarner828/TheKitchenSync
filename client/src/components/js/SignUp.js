@@ -1,14 +1,12 @@
 import React, {useState} from "react";
+import { Link, useNavigate } from 'react-router-dom';
+
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import Checkbox from "@material-ui/core/Checkbox";
-import { Link } from 'react-router-dom';
-
 import Grid from "@material-ui/core/Grid";
-// import Box from "@material-ui/core/Box";
+
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -46,15 +44,22 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
 
+  const navigate = useNavigate();
+
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
   const [validated] = useState(false);
   const [ addProfile ] = useMutation(ADD_PROFILE);
   const [showAlert, setShowAlert] = useState(false);
 
+
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
+
+
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -69,6 +74,7 @@ export default function SignUp() {
     try {
       const  data = await addProfile({variables: {...userFormData}});
       Auth.login(data.data.addProfile.token);
+      navigate("/profile");
     
     } catch (err) {
       console.error(err);

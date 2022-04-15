@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // import Alert from '@mui/material/Alert';
 // import AlertTitle from '@mui/material/AlertTitle';
@@ -23,6 +23,10 @@ import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 function Copyright(props) {
+
+
+
+
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
@@ -37,7 +41,11 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+
+
 export default function Login() {
+
+  const navigate = useNavigate();
 
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [login] = useMutation(LOGIN);
@@ -48,6 +56,8 @@ export default function Login() {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -64,6 +74,7 @@ export default function Login() {
       });
 
       Auth.login(data.login.token);
+      navigate("/dashboard");
     } catch (e) {
       console.error(e);
       setShowAlert(true);
