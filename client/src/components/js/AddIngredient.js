@@ -73,22 +73,24 @@ export default function AddIngredient() {
   const [Refrigerate, setRefrigerate] = React.useState('');
   const [UOM, setUOM] = React.useState('');
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRefrigerate(event.target.value);
-  }
+  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setRefrigerate(event.target.value);
+  // }
 
-  const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUOM(event.target.value);
-  };
+  // const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setUOM(event.target.value);
+  // };
 
   const [userFormData, setUserFormData] = React.useState({ name: '', quantity: '', uom: '', refrigerated: '' });
   const [addingredient] = useMutation(ADD_PRODUCT);
   const [validated] = React.useState(false);
   const [showAlert, setShowAlert] = React.useState(false);
 
+  console.log(userFormData)
+
   const handleInputChange = (event) => {
-    const { } = event.target;
-    setUserFormData({ ...userFormData });
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
   };
 
   const handleSubmit = async (event) => {
@@ -105,11 +107,14 @@ export default function AddIngredient() {
       const { data } = await addingredient({
         variables: { ...userFormData },
       });
+      console.log(data)
     } catch (e) {
       console.error(e);
       setShowAlert(true);
     }
  
+    
+
     setUserFormData({
       name: '',
       quantity: '',
@@ -127,6 +132,7 @@ export default function AddIngredient() {
       noValidate
       validated={validated}
       autoComplete="off"
+      onSubmit={handleSubmit}
     >
       <div>
         <TextField
@@ -134,22 +140,31 @@ export default function AddIngredient() {
           id="outlined-required"
           label="Ingredient Name"
           helperText="Field Required"
+          name="name"
+          autoComplete="name"
           value={userFormData.name}
+          onChange={handleInputChange}
         />
         <TextField
           required
           id="outlined-required"
           label="Quantity"
           helperText="Field Required"
+          name="quantity"
+          autoComplete="quantity"
           value={userFormData.quantity}
+          onChange={handleInputChange}
         />
         <TextField
           id="outlined-select-currency"
           select
           required
           label="Unit of Measurement"
-          value={UOM}
-          onChange={handleChange2}
+          name="uom"
+          autoComplete="uom"
+          options={uom}
+          value={userFormData.uom}
+          onChange={handleInputChange}
           helperText="Field Required"
         >
           {uom.map((option) => (
@@ -163,8 +178,11 @@ export default function AddIngredient() {
           select
           required
           label="Refrigerated?"
-          value={Refrigerate}
-          onChange={handleChange}
+          name="refrigerated"
+          autoComplete="refrigerated"
+          options={Refrigerate}
+          value={userFormData.refrigerated}
+          onChange={handleInputChange}
           helperText="Field Required"
         >
           {Refrigerated.map((option) => (
@@ -174,7 +192,7 @@ export default function AddIngredient() {
           ))}
         </TextField>
       </div>
-      <Button style={styles.submitButton} variant="contained">Submit Ingredient</Button>
+      <Button type="submit" disabled={!(userFormData.name && userFormData.quantity && userFormData.uom && userFormData.refrigerated)} style={styles.submitButton} variant="contained">Submit Ingredient</Button>
     </Box>
     )
 }
