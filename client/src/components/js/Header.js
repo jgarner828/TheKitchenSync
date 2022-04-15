@@ -4,6 +4,11 @@ import AppBar from '@mui/material/AppBar';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Kitchen from '../images/kitchen.jpeg';
+import SpiceChart from './SpiceChart';
+import MyKitchen from './MyKitchen';
+import AddIngredients from './AddIngredients';
+import AddRecipe from './AddRecipe';
+import GenerateRecipe from './GenerateRecipe';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -24,11 +29,16 @@ function Header(props) {
         <Tabs value={selectedTab} onChange={handleTabs} textColor="inherit">
           <Tab label="Spice Chart" />
           <Tab label="My Kitchen" /> 
-          <Tab label="Add Product" />
+          <Tab label="Add Ingredients" />
           <Tab label="Add Recipe" />
           <Tab label="Generate Recipe" />
         </Tabs>
       </AppBar>
+      { selectedTab === 0 && <SpiceChart /> }
+      { selectedTab === 1 && <MyKitchen /> }
+      { selectedTab === 2 && <AddIngredients /> }
+      { selectedTab === 3 && <AddRecipe /> }
+      { selectedTab === 4 && <GenerateRecipe /> }
     </React.Fragment>
   );
 }
