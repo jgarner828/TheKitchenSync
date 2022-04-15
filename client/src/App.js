@@ -9,7 +9,6 @@ import Profile from './components/js/Profile';
 import CookBook from './components/js/CookBook';
 import SignUp from './components/js/SignUp';
 import SpiceChart from './components/js/SpiceChart';
-import AddIngredient from './components/js/AddIngredient';
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {
@@ -63,7 +62,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/spicechart" element={<SpiceChart />} />
-            <Route path="/addingredient" element={<AddIngredient />}/>
         </Routes>
         
           {/* <Button color="primary" variant="contained"> Press me </Button>
