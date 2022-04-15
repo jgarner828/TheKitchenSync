@@ -69,16 +69,33 @@ export const GET_ME = gql`
   }
 `;
 
-// export const ALL_PRODUCT = gql`
-// query products {
+export const ALL_PRODUCT = gql`
+query Products {
+  products {
+    _id
+    name
+    quantity
+    uom
+    refrigerated
+    expires
+    purchaseDate
+  }
+}
+`;
 
-// }
-// `;
-
-// export const ONE_PRODUCT = gql`
-// query product($productId: ID!) {
-// }
-// `;
+export const ONE_PRODUCT = gql`
+query Products($productId: ID!) {
+  product(productId: $productId) {
+    _id
+    name
+    quantity
+    uom
+    refrigerated
+    expires
+    purchaseDate
+  }
+}
+`;
 
 
 export const ONE_RECIPE = gql`
