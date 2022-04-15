@@ -45,6 +45,7 @@ export default function SignUp() {
   const classes = useStyles();
 
   const navigate = useNavigate();
+  // const history = History();
 
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
   const [validated] = useState(false);

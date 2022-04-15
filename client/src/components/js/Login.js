@@ -46,6 +46,7 @@ const theme = createTheme();
 export default function Login() {
 
   const navigate = useNavigate();
+ 
 
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [login] = useMutation(LOGIN);
@@ -74,7 +75,7 @@ export default function Login() {
       });
 
       Auth.login(data.login.token);
-      navigate("/dashboard");
+      navigate("/profile");
     } catch (e) {
       console.error(e);
       setShowAlert(true);

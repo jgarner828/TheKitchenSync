@@ -3,6 +3,7 @@ import decode from 'jwt-decode';
 
 
 
+
 // create a new class to instantiate for a user
 class AuthService {
   // get user data
@@ -43,6 +44,7 @@ class AuthService {
   logout() {
     // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token');
+
 
 
   }
