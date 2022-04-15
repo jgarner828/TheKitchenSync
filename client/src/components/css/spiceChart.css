@@ -10,7 +10,7 @@ svg rect.selection {
   stroke: none;
 }
 
-#root {
+/* #root {
   max-width: 600px;
   margin: 0 auto;
   display: flex;
@@ -21,7 +21,7 @@ svg rect.selection {
   padding: 0 50px;
   text-align: center;
   box-sizing: border-box;
-}
+} */
 
 button {
   width: 100px;

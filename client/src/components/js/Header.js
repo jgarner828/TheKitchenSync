@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Kitchen from '../images/kitchen.jpeg';
-// import SpiceChartData from './SpiceChartData';
+import SpiceChartData from './SpiceChartData';
 import MyKitchen from './MyKitchen';
 import AddIngredient from './AddIngredient';
 import AddRecipe from './AddRecipe';
@@ -31,7 +31,7 @@ function Header(props) {
           <Tab label="Generate Recipe" />
         </Tabs>
       </AppBar>
-      {/* { selectedTab === 0 && <SpiceChartData /> } */}
+      { selectedTab === 0 && <SpiceChartData /> }
       { selectedTab === 1 && <MyKitchen /> }
       { selectedTab === 2 && <AddIngredient /> }
       { selectedTab === 3 && <AddRecipe /> }
