@@ -10,6 +10,8 @@ import CookBook from './components/js/CookBook';
 import SignUp from './components/js/SignUp';
 import Logout from './components/js/Logout';
 
+import AddRecipe from './components/js/AddRecipe';
+
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {
   ApolloClient,
