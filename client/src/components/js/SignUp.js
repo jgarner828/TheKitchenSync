@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,6 +13,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+
+import { useMutation } from '@apollo/client';
+import { ADD_PROFILE } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -42,6 +46,42 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
 
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [validated] = useState(false);
+  const [ addProfile ] = useMutation(ADD_PROFILE);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const  data = await addProfile({variables: {...userFormData}});
+      Auth.login(data.data.addProfile.token);
+    
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);      
+    }
+
+    setUserFormData({
+      username: '',
+      email: '',
+      password: '',
+    });
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -52,29 +92,19 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate validated={validated} onSubmit={handleFormSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
-                name="firstName"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
+                id="username"
+                label="Create Username"
+                name="username"
+                autoComplete="username"
+                onChange={handleInputChange}
+                value={userFormData.username}
               />
             </Grid>
             <Grid item xs={12}>
@@ -86,6 +116,8 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={handleInputChange}
+                value={userFormData.email}
               />
             </Grid>
             <Grid item xs={12}>
@@ -98,11 +130,14 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handleInputChange}
+                value={userFormData.password}
               />
             </Grid>            
           </Grid>
           <Button
             type="submit"
+            disabled={!(userFormData.username && userFormData.email && userFormData.password)}
             fullWidth
             variant="contained"
             color="primary"
@@ -112,7 +147,7 @@ export default function SignUp() {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link to="/" variant="body2">
+              <Link to="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
