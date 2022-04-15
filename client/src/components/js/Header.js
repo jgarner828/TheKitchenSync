@@ -4,9 +4,9 @@ import AppBar from '@mui/material/AppBar';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Kitchen from '../images/kitchen.jpeg';
-import SpiceChart from './SpiceChart';
+import SpiceChartData from './SpiceChartData';
 import MyKitchen from './MyKitchen';
-import AddIngredients from './AddIngredients';
+import AddIngredient from './AddIngredient';
 import AddRecipe from './AddRecipe';
 import GenerateRecipe from './GenerateRecipe';
 
@@ -34,9 +34,9 @@ function Header(props) {
           <Tab label="Generate Recipe" />
         </Tabs>
       </AppBar>
-      { selectedTab === 0 && <SpiceChart /> }
+      { selectedTab === 0 && <SpiceChartData /> }
       { selectedTab === 1 && <MyKitchen /> }
-      { selectedTab === 2 && <AddIngredients /> }
+      { selectedTab === 2 && <AddIngredient /> }
       { selectedTab === 3 && <AddRecipe /> }
       { selectedTab === 4 && <GenerateRecipe /> }
     </React.Fragment>

@@ -1,53 +1,104 @@
-import '../css/spiceChart.css';
-import * as d3 from 'd3';
-import {useEffect} from 'react';
+import React, { useEffect, useRef, useState } from "react";
+import {
+  select,
+  scaleBand,
+  axisBottom,
+  stack,
+  max,
+  scaleLinear,
+  axisLeft,
+  stackOrderAscending
+} from "d3";
+import ResizeObserver from "resize-observer-polyfill";
 
-function SpiceChart() {
-  
+const useResizeObserver = ref => {
+  const [dimensions, setDimensions] = useState(null);
   useEffect(() => {
+    const observeTarget = ref.current;
+    const resizeObserver = new ResizeObserver(entries => {
+      entries.forEach(entry => {
+        setDimensions(entry.contentRect);
+      });
+    });
+    resizeObserver.observe(observeTarget);
+    return () => {
+      resizeObserver.unobserve(observeTarget);
+    };
+  }, [ref]);
+  return dimensions;
+};
 
-      // Create a dataset of pets and the amount of people that own them
-      // replace data with data from query!!!! 
-      let dataSet = [
-        {subject: "Dogs", count: 150},
-        {subject: "Fish", count: 75},
-        {subject: "Cats", count: 135},
-        {subject: "Bunnies", count: 240},
-      ]
+/**
+ * Component that renders a SpiceChart
+ */
 
-      // Generate a p tag for each element in the dataSet with the text: Subject: Count 
-      d3.select('#pgraphs').selectAll('p').data(dataSet).enter().append('p').text(dt => dt.subject + ": " + dt.count)
-      
-      // Bar Chart:
-        const getMax = () => { // Calculate the maximum value in the DataSet
-          let max = 0
-          dataSet.forEach((dt) => {
-              if(dt.count > max) {max = dt.count}
-          })
-          return max
-        }
-     
-        
-        // Create each of the bars and then set them all to have the same height(Which is the max value)
-        d3.select('#BarChart').selectAll('div').data(dataSet) 
-        .enter().append('div').classed('bar', true).style('height', `${getMax()}px`)
-    
-        //Transition the bars into having a height based on their corresponding count value
-        d3.select('#BarChart').selectAll('.bar')
-        .transition().duration(1000).style('height', bar => `${bar.count}px`)
-          .style('width', '80px').style('margin-right', '10px').delay(300) // Fix their width and margin
-        
-        
-        
-    }, [])
+ function SpiceChart({ data, keys, colors }) {
+  const svgRef = useRef();
+  const wrapperRef = useRef();
+  const dimensions = useResizeObserver(wrapperRef);
+
+  // will be called initially and on every data change
+  useEffect(() => {
+    const svg = select(svgRef.current);
+    const { width, height } =
+      dimensions || wrapperRef.current.getBoundingClientRect();
+
+    // stacks / layers
+    console.log(keys);
+    const stackGenerator = stack()
+      .keys(keys)
+      .order(stackOrderAscending);
+    const layers = stackGenerator(data);
+    const extent = [
+      0,
+      max(layers, layer => max(layer, sequence => sequence[1]))
+    ];
+
+    // scales
+    const xScale = scaleBand()
+      .domain(data.map(d => d.year))
+      .range([0, width])
+      .padding(0.25);
+
+    const yScale = scaleLinear()
+      .domain(extent)
+      .range([height, 0]);
+
+    // rendering
+    svg
+      .selectAll(".layer")
+      .data(layers)
+      .join("g")
+      .attr("class", "layer")
+      .attr("fill", layer => colors[layer.key])
+      .selectAll("rect")
+      .data(layer => layer)
+      .join("rect")
+      .attr("x", sequence => xScale(sequence.data.year))
+      .attr("width", xScale.bandwidth())
+      .attr("y", sequence => yScale(sequence[1]))
+      .attr("height", sequence => yScale(sequence[0]) - yScale(sequence[1]));
+
+    // axes
+    const xAxis = axisBottom(xScale);
+    svg
+      .select(".x-axis")
+      .attr("transform", `translate(0, ${height})`)
+      .call(xAxis);
+
+    const yAxis = axisLeft(yScale);
+    svg.select(".y-axis").call(yAxis);
+  }, [colors, data, dimensions, keys]);
 
   return (
-    <div className = "App">
-      {/* // Create a div to house our p tags */}
-      <div id="pgraphs"></div> 
-      {/* // Create a div to house our BarChart */}
-      <div id="BarChart"></div> 
-    </div>
+    <React.Fragment>
+      <div ref={wrapperRef} style={{ marginBottom: "2rem" }}>
+        <svg ref={svgRef}>
+          <g className="x-axis" />
+          <g className="y-axis" />
+        </svg>
+      </div>
+    </React.Fragment>
   );
 }
 

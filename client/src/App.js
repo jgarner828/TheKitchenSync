@@ -8,7 +8,6 @@ import Home from './components/js/Home';
 import Profile from './components/js/Profile';
 import CookBook from './components/js/CookBook';
 import SignUp from './components/js/SignUp';
-import SpiceChart from './components/js/SpiceChart';
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {
