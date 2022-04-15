@@ -10,7 +10,7 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import RefreshIcon from '@mui/icons-material/Refresh';
-import SpiceChart from './SpiceChart';
+
 
 import { GET_ME } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
@@ -26,8 +26,6 @@ export default function Content(){
   return (
     <div>
     {signedOn && (<h2>Viewing {`${user.username}'s`} profile.</h2>)}
-    <SpiceChart />
-
     <h4>Hello World {`${user.email}`}</h4>
     <h5> {`${user._id}`}</h5>
     </div>
