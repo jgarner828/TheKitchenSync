@@ -53,11 +53,11 @@ const uom = [
 
 const Refrigerated = [
   {
-    value: 'True',
+    value: true,
     label: 'Yes',
   },
   {
-    value: 'False',
+    value: false,
     label: 'No',
   },
 ];
@@ -71,23 +71,18 @@ const styles = {
 
 
 export default function AddIngredient() {
+
   const [Refrigerate, setRefrigerate] = React.useState('');
+
   const [UOM, setUOM] = React.useState('');
 
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setRefrigerate(event.target.value);
-  // }
+  const [userFormData, setUserFormData] = React.useState({ name: '', quantity: 1, uom: '', refrigerated: false });
 
-  // const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setUOM(event.target.value);
-  // };
-
-  const [userFormData, setUserFormData] = React.useState({ name: '', quantity: '', uom: '', refrigerated: '' });
-  const [addingredient] = useMutation(ADD_PRODUCT);
   const [validated] = React.useState(false);
-  const [showAlert, setShowAlert] = React.useState(false);
 
-  console.log(userFormData)
+  const [showAlert, setShowAlert] = React.useState(false);
+  
+  const [addIngredient] = useMutation(ADD_PRODUCT);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -115,10 +110,11 @@ export default function AddIngredient() {
     }
 
     try {
-      const { data } = await addingredient({
-        variables: { ...userFormData },
-      });
+      console.log(userFormData)
+      const { data } = await addIngredient({variables: {product: {...userFormData}}})
       console.log(data)
+
+
     } catch (e) {
       console.error(e);
       setShowAlert(true);
