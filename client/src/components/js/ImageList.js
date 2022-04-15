@@ -11,13 +11,20 @@ const styles = {
         'marginRight': 'auto',
         'marginLeft': 'auto',
     },
+    topHeader: {
+      'backgroundColor': '#DC5656',
+      'color': 'white',
+      'fontSize': '1.5rem',
+      'borderStyle': 'solid',
+      'borderColor': 'black',
+    },
 }
 
 export default function TiltebarImageList() {
   return (
     <ImageList style={ styles.imageList } sx={{ maxWidth: 1000, maxHeight: 800 }}>
       <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader className="topHeader" component="div">Top Recipes</ListSubheader>
+        <ListSubheader style={styles.topHeader} component="div">Top Recipes</ListSubheader>
       </ImageListItem>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>

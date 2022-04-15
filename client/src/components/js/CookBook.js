@@ -79,6 +79,8 @@ const Image = styled('span')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  borderStyle: 'solid',
+  borderColor: 'black',
   color: theme.palette.common.white,
 }));
 
