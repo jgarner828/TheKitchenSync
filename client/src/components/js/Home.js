@@ -69,7 +69,7 @@ export default function Home() {
                 <Card style={ styles.discoverCard } sx={{ maxWidth: 1250 }}>
                 <CardContent>
                     <h2 className="discoverHead">Discover</h2>
-                    <p className="discoverTxt">Discover more recipes by visiting our recipes page!</p>
+                    <p className="discoverTxt">Discover more recipes by visiting our CookBook page!</p>
                     <Button onMouseOver={mouseOver} onMouseLeave={mouseOut} variant="contained"  style={styles.discoverBtn} href="#contained-buttons">
                         Discover
                     </Button>
