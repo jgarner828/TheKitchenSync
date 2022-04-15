@@ -10,11 +10,11 @@ import { ADD_RECIPE } from "../../utils/mutations";
 
 const Refrigerated = [
   {
-    value: 'True',
+    value: true,
     label: 'Yes',
   },
   {
-    value: 'False',
+    value: false,
     label: 'No',
   },
 ];
@@ -32,8 +32,8 @@ const styles = {
 
 
 export default function AddRecipe() {
-  const [Refrigerate, setRefrigerate] = React.useState('');
-  const [number, setNumber] = React.useState('');
+  const [Refrigerate, setRefrigerate] = React.useState(false);
+  const [number, setNumber] = React.useState(0);
   // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   setRefrigerate(event.target.value);
   // }
@@ -42,7 +42,7 @@ export default function AddRecipe() {
   //   setUOM(event.target.value);
   // };
 
-  const [userFormData, setUserFormData] = React.useState({ name: '', instructions: '', minutes: '', ingredients: '' });
+  const [userFormData, setUserFormData] = React.useState({ name: '', instructions: '', minutes: 0, ingredients: [""] });
   const [addrecipe] = useMutation(ADD_RECIPE);
   const [validated] = React.useState(false);
   const [showAlert, setShowAlert] = React.useState(false);
