@@ -8,6 +8,7 @@ import Home from './components/js/Home';
 import Profile from './components/js/Profile';
 import CookBook from './components/js/CookBook';
 import SignUp from './components/js/SignUp';
+import Logout from './components/js/Logout';
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {
@@ -59,6 +60,7 @@ function App() {
             <Route path="/cookbook" element={<CookBook />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/logout" element={<Logout />} />
         </Routes>
         
           {/* <Button color="primary" variant="contained"> Press me </Button>

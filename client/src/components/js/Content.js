@@ -25,9 +25,9 @@ export default function Content(){
 
   return (
     <div>
-    {signedOn && (<h2>Viewing {`${user.username}'s`} profile.</h2>)}
-    <h4>Hello World {`${user.email}`}</h4>
-    <h5> {`${user._id}`}</h5>
+    {signedOn && (<h2>Welcome {`${user.username}`}!</h2>)}
+    {signedOn && (<h4>Your Account's Email {`${user.email}`}</h4>)}
+    {signedOn && (<h5>Your ID Number: {`${user._id}`}</h5>)}
     </div>
   )
 }
