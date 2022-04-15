@@ -8,7 +8,6 @@ import Home from './components/js/Home';
 import Profile from './components/js/Profile';
 import CookBook from './components/js/CookBook';
 import SignUp from './components/js/SignUp';
-import SpiceChart from './components/js/SpiceChart';
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {
@@ -29,6 +28,7 @@ const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
   // return the headers to the context so httpLink can read them
+  console.log(token);
   return {
     headers: {
       ...headers,
@@ -52,8 +52,6 @@ function App() {
         <Router>
          
         <Header />
-        {/* <SpiceChart /> */}
-        {/* Add spice chart to profile page? */}
       
         <Routes>
             <Route path="/" element={<Home />} />           
@@ -61,7 +59,6 @@ function App() {
             <Route path="/cookbook" element={<CookBook />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/spicechart" element={<SpiceChart />} />
         </Routes>
         
           {/* <Button color="primary" variant="contained"> Press me </Button>

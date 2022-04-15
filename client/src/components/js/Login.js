@@ -5,27 +5,34 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
+
+import { Link, useNavigate } from 'react-router-dom';
+
+// import Alert from '@mui/material/Alert';
+// import AlertTitle from '@mui/material/AlertTitle';
 
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 function Copyright(props) {
+
+
+
+
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
+      {/* <Link color="inherit" href="https://mui.com/">
+        TheKitchenSync
+      </Link>{' '} */}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -34,7 +41,11 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+
+
 export default function Login() {
+
+  const navigate = useNavigate();
 
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [login] = useMutation(LOGIN);
@@ -45,6 +56,8 @@ export default function Login() {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -61,6 +74,7 @@ export default function Login() {
       });
 
       Auth.login(data.login.token);
+      navigate("/dashboard");
     } catch (e) {
       console.error(e);
       setShowAlert(true);
@@ -130,18 +144,23 @@ export default function Login() {
             >
               Sign In
             </Button>
-            <Grid container>
+
+
+               <Grid container>
               <Grid item xs>
                 <Link to="#" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
+                <Link to="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
+
+         
+            
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />

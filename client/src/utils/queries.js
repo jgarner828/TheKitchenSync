@@ -56,27 +56,29 @@ query profile($profileId: ID!) {
 }
 `;
 
-export const MY_PROFILE = gql`
-  query me(profileId: $profileId) {
+
+
+export const GET_ME = gql`
+  # create a GraphQL query to be executed by Apollo Client
+  query me {
     me {
-      profile {
-        _id
-        username
-      }
+      _id
+      username
+      email
     }
   }
 `;
 
-export const ALL_PRODUCT = gql`
-query products {
+// export const ALL_PRODUCT = gql`
+// query products {
 
-}
-`;
+// }
+// `;
 
-export const ONE_PRODUCT = gql`
-query product($productId: ID!) {
-}
-`;
+// export const ONE_PRODUCT = gql`
+// query product($productId: ID!) {
+// }
+// `;
 
 
 export const ONE_RECIPE = gql`
