@@ -94,6 +94,16 @@ export default function AddIngredient() {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
+  const handleNumberChange = (event) => {
+    let valu = event.target.value;
+
+    if (!Number(valu)) {
+        return;
+    }
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value});
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -154,7 +164,7 @@ export default function AddIngredient() {
           name="quantity"
           autoComplete="quantity"
           value={userFormData.quantity}
-          onChange={handleInputChange}
+          onChange={handleNumberChange}
         />
         <TextField
           id="outlined-select-currency"

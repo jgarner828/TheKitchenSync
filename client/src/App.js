@@ -9,6 +9,8 @@ import Profile from './components/js/Profile';
 import CookBook from './components/js/CookBook';
 import SignUp from './components/js/SignUp';
 
+import AddRecipe from './components/js/AddRecipe';
+
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {
   ApolloClient,
