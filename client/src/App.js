@@ -52,8 +52,6 @@ function App() {
         <Router>
          
         <Header />
-        {/* <SpiceChart /> */}
-        {/* Add spice chart to profile page? */}
       
         <Routes>
             <Route path="/" element={<Home />} />           
@@ -61,7 +59,6 @@ function App() {
             <Route path="/cookbook" element={<CookBook />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/spicechart" element={<SpiceChart />} />
         </Routes>
         
           {/* <Button color="primary" variant="contained"> Press me </Button>
