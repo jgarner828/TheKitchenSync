@@ -12,6 +12,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from '../images/logo.png'
+import LogoutIcon from '@mui/icons-material/Logout';
+import { pink } from '@mui/material/colors';
+import Auth from '../../utils/auth';
 
 
 import { Link } from 'react-router-dom';
@@ -19,7 +22,7 @@ import { Link } from 'react-router-dom';
 
 const pages = ['Profile', 'Login', 'CookBook'];
 
-const settings = ['Profile','Account', 'Dashboard', 'Logout'];
+const settings = ['Logout'];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -134,7 +137,7 @@ const Header = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar sx={{ bgcolor: pink[500]}}><LogoutIcon/></Avatar>
               </IconButton>
             </Tooltip>
             <Menu
@@ -154,7 +157,7 @@ const Header = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <Link key={setting} style={{ textDecoration: 'none' }} to={`/${setting}`}>
+                <Link key={setting} onClick={Auth.logout} style={{ textDecoration: 'none' }} to={`/${setting}`}>
                 <MenuItem  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>

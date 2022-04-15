@@ -12,8 +12,24 @@ import SearchIcon from '@mui/icons-material/Search';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import SpiceChart from './SpiceChart';
 
-export default function Content() {
+import { GET_ME } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
+import Auth from '../../utils/auth';
+
+export default function Content(){
+  const { data } = useQuery(GET_ME);
+  const user = data?.me || data?.user || {};
+  console.log(user)
+
+  const signedOn = Auth.loggedIn();
+
   return (
+    <div>
+    {signedOn && (<h2>Viewing {`${user.username}'s`} profile.</h2>)}
     <SpiceChart />
-  );
+
+    <h4>Hello World {`${user.email}`}</h4>
+    <h5> {`${user._id}`}</h5>
+    </div>
+  )
 }
