@@ -9,22 +9,6 @@ import { useQuery, useMutation } from '@apollo/client';
 import { ADD_RECIPE } from "../../utils/mutations";
 import { ALL_PRODUCT } from "../../utils/queries"
 
-const Ingredients = [
-  {
-    value: 'sdf',
-    label: 'sdf',
-  },
-  {
-    value: 'test product',
-    label: 'test product',
-  },
-  {
-    value: 'test',
-    label: 'test',
-  },
-];
-
-
 const styles = {
     submitButton: {
         'marginTop': '1em',
@@ -45,8 +29,18 @@ export default function AddRecipe() {
   const [validated] = React.useState(false);
   const [showAlert, setShowAlert] = React.useState(false);
 
+
+  
+
   // this is your ingredient list Austin
+  if (!loading) {
     console.log(data.products)
+    var ingredientOptions = data.products.map((each) => {
+      return { _id: each._id, name: each.name}
+    })
+    console.log(ingredientOptions)
+  }
+
 
 
 
@@ -54,9 +48,6 @@ export default function AddRecipe() {
   const ingredientInputChange = (event) => {
       const { name, value } = event.target;
       setUserFormData({ ...userFormData, [name]: value});
-      const arr = []
-      arr.push(event.target.value)
-      arr.push(userFormData.ingredients)
   }
 
   const handleInputChange = (event) => {
@@ -153,15 +144,17 @@ export default function AddRecipe() {
           helperText="Field Required"
           name="ingredients"
           autoComplete="ingredients"
-          options={Ingredients}
+          options={ingredientOptions}
           value={userFormData.ingredients}
           onChange={ingredientInputChange}
         >
-          {Ingredients.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
+          {!loading && 
+          ingredientOptions.map((option) => (
+            
+            <MenuItem key={`${option._id}`} value={`${option._id}`}>
+              {`${option.name}`}
             </MenuItem>
-          ))}
+          )) }
         </TextField>
       </div>
       <Button type="submit" disabled={!(userFormData.name && userFormData.instructions && userFormData.minutes && userFormData.ingredients)} style={styles.submitButton} variant="contained">Submit Ingredient</Button>
