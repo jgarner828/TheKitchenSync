@@ -31,6 +31,8 @@ function Header(props) {
           <Tab label="Generate Recipe" />
         </Tabs>
       </AppBar>
+      <br></br>
+      <br></br>
       { selectedTab === 0 && <SpiceChartData /> }
       { selectedTab === 1 && <MyKitchen /> }
       { selectedTab === 2 && <AddIngredient /> }

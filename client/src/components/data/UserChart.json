@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1, 
+    "ingredients": [
+      "thyme", 
+      "oregano",
+      "garlic powder",
+      "brown sugar"
+    ],
+    "quantity": [
+      2,
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "id": 2, 
+    "ingredients": [
+      "thyme", 
+      "oregano",
+      "garlic powder",
+      "brown sugar"
+    ],
+    "quantity": [
+      1,
+      2,
+      1,
+      4
+    ]
+  }
+]
