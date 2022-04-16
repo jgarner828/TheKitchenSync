@@ -1,7 +1,7 @@
 /* Home page */
 
 .headerTxt-div {
-    background-color: red;
+    background-color: rgb(150, 9, 9);
     color: white;
     max-width: 40%;
     margin-right: auto;
@@ -19,11 +19,11 @@
 
 .sloganTxt {
     font-size: 1.2rem;
-    color: yellow;
+    color: black;
 }
 
 .missionHead {
-    color: yellow;
+    color: black;
     margin-top: 5px;
 }
 
@@ -55,7 +55,7 @@
 
 .topHeader {
     font-size: 2rem;
-    background-color: #DC5656;
+    background-color: rgb(150, 9, 9);
     color: white;
 }
 

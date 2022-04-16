@@ -3,72 +3,67 @@ import "../css/spiceChart.css";
 import SpiceChart from "../js/SpiceChart";
 
 
-const allKeys = ["ingredients"];
+const allKeys = ["oregano", "tyhme", "paprika"];
 
 const colors = {
-  "ingredients": "blue"
+  "oregano": "rgb(15, 93, 196)",
+  "tyhme": "lightgrey",
+  "paprika": "rgb(150, 9, 9)"
 };
 
 function SpiceChartData() {
   const [keys, setKeys] = useState(allKeys);
-  const [data, setData] = useState([]);
-
-  const getData=()=>{
-    fetch('./components/data/ChartData.json'
-    ,{
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
+  const [data, setData] = useState([
+    {
+      date: "04-15-22",
+      "oregano": 1,
+      "tyhme": 3,
+      "paprika": 2
+    },
+    {
+      date: "04-16-22",
+      "oregano": 4,
+      "tyhme": 2,
+      "paprika": 1
+    },
+    {
+      date: "04-17-22",
+      "oregano": 3,
+      "tyhme": 1,
+      "paprika": 2
     }
-    )
-      .then(function(response){
-        return response.json();
-      })
-      .then(function(myJson) {
-        setData(myJson)
-      });
-  }
-  useEffect(()=>{
-    getData()
-  },[])
+  ]);
+
+  // const getData=()=>{
+  //   fetch('../components/data/ChartData.json'
+  //   ,{
+  //     headers : { 
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json'
+  //      }
+  //   }
+  //   )
+  //     .then(function(response){
+  //       return response.json();
+  //     })
+  //     .then(function(myJson) {
+  //       setData(myJson)
+  //     });
+  // }
+  // useEffect(()=>{
+  //   getData()
+  // },[])
   // console.log(ChartData);
-
-
-// const allKeys = ["🥑", "🍌", "🍆"];
-
-// const colors = {
-//   "🥑": "green",
-//   "🍌": "orange",
-//   "🍆": "purple"
-// };
-
-// function SpiceChartData() {
-//   const [keys, setKeys] = useState(allKeys);
-//   const [data, setData] = useState([
-//     {
-//       year: 1980,
-//       "🥑": 10,
-//       "🍌": 20,
-//       "🍆": 30
-//     },
-//     {
-//       year: 1990,
-//       "🥑": 20,
-//       "🍌": 40,
-//       "🍆": 60
-//     },
-//     {
-//       year: 2000,
-//       "🥑": 30,
-//       "🍌": 45,
-//       "🍆": 80
-//     }
-//   ]);
 
   return (
     <React.Fragment>
-      { keys && data && <SpiceChart data={data} keys={keys} colors={colors} /> }
+      {/* <div>
+      { 
+        keys && data && data.length>0 && data.map((item) => <p>{item.about} </p>
+      }
+      </div> */}
+
+      <SpiceChart data={data} keys={keys} colors={colors} /> 
 
       <div className="fields">
         {allKeys.map(key => (

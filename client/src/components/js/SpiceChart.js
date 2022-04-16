@@ -56,7 +56,7 @@ const useResizeObserver = ref => {
 
     // scales
     const xScale = scaleBand()
-      .domain(data.map(d => d.year))
+      .domain(data.map(d => d.date))
       .range([0, width])
       .padding(0.25);
 
@@ -74,7 +74,7 @@ const useResizeObserver = ref => {
       .selectAll("rect")
       .data(layer => layer)
       .join("rect")
-      .attr("x", sequence => xScale(sequence.data.year))
+      .attr("x", sequence => xScale(sequence.data.date))
       .attr("width", xScale.bandwidth())
       .attr("y", sequence => yScale(sequence[1]))
       .attr("height", sequence => yScale(sequence[0]) - yScale(sequence[1]));
