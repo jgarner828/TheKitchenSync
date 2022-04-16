@@ -3,11 +3,11 @@ import "../css/spiceChart.css";
 import SpiceChart from "../js/SpiceChart";
 
 
-const allKeys = ["oregano", "tyhme", "paprika"];
+const allKeys = ["oregano", "thyme", "paprika"];
 
 const colors = {
   "oregano": "rgb(15, 93, 196)",
-  "tyhme": "lightgrey",
+  "thyme": "lightgrey",
   "paprika": "rgb(150, 9, 9)"
 };
 
@@ -17,19 +17,19 @@ function SpiceChartData() {
     {
       date: "04-15-22",
       "oregano": 1,
-      "tyhme": 3,
+      "thyme": 3,
       "paprika": 2
     },
     {
       date: "04-16-22",
       "oregano": 4,
-      "tyhme": 2,
+      "thyme": 2,
       "paprika": 1
     },
     {
       date: "04-17-22",
       "oregano": 3,
-      "tyhme": 1,
+      "thyme": 1,
       "paprika": 2
     }
   ]);
