@@ -4,7 +4,7 @@ import React from "react";
 export default function Footer() {
     return (
         <div>
-            <p>My Kitchen!</p>
+            <p>My Kitchen coming soon!</p>
         </div>
     )
 }
