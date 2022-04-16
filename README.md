@@ -19,9 +19,9 @@ MERN stack application - The Kitchen Sync is a user friendly web application tha
 
 
 ## Application
-[Deployed Link](https://thekitchensync.herokuapp.com/)
+Please visit [The Kitchen Sync](https://thekitchensync.herokuapp.com/) which was deployed through Heroku.
 
-*--Screenshots to go here--* 
+![](./client/src/components/images/kitchen-presentation.png)
 
 ## Installation
 Run the following command to install all necessary dependencies:
