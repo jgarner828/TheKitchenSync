@@ -8,14 +8,18 @@ import Button from '@mui/material/Button';
 import { useMutation } from '@apollo/client';
 import { ADD_RECIPE } from "../../utils/mutations";
 
-const Refrigerated = [
+const Ingredients = [
   {
-    value: true,
-    label: 'Yes',
+    value: 'sdf',
+    label: 'sdf',
   },
   {
-    value: false,
-    label: 'No',
+    value: 'test product',
+    label: 'test product',
+  },
+  {
+    value: 'test',
+    label: 'test',
   },
 ];
 
@@ -32,8 +36,6 @@ const styles = {
 
 
 export default function AddRecipe() {
-  const [Refrigerate, setRefrigerate] = React.useState(false);
-  const [number, setNumber] = React.useState(0);
   // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   setRefrigerate(event.target.value);
   // }
@@ -42,12 +44,20 @@ export default function AddRecipe() {
   //   setUOM(event.target.value);
   // };
 
-  const [userFormData, setUserFormData] = React.useState({ name: '', instructions: '', minutes: 0, ingredients: [""] });
-  const [addrecipe] = useMutation(ADD_RECIPE);
+  const [userFormData, setUserFormData] = React.useState({ name: '', instructions: '', minutes: 1, ingredients: [""] });
+  const [addRecipe] = useMutation(ADD_RECIPE);
   const [validated] = React.useState(false);
   const [showAlert, setShowAlert] = React.useState(false);
 
   console.log(userFormData)
+
+  const ingredientInputChange = (event) => {
+      const { name, value } = event.target;
+      setUserFormData({ ...userFormData, [name]: value});
+      const arr = []
+      arr.push(event.target.value)
+      arr.push(userFormData.ingredients)
+  }
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -75,9 +85,7 @@ export default function AddRecipe() {
     }
 
     try {
-      const { data } = await addrecipe({
-        variables: { ...userFormData },
-      });
+      const { data } = await addRecipe({variables: { ...userFormData}})
       console.log(data)
     } catch (e) {
       console.error(e);
@@ -145,11 +153,11 @@ export default function AddRecipe() {
           helperText="Field Required"
           name="ingredients"
           autoComplete="ingredients"
-          options={Refrigerate}
+          options={Ingredients}
           value={userFormData.ingredients}
-          onChange={handleInputChange}
+          onChange={ingredientInputChange}
         >
-          {Refrigerated.map((option) => (
+          {Ingredients.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>

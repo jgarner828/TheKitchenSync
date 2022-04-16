@@ -49,6 +49,10 @@ const uom = [
       value: 'dl',
       label: 'Deciliter',
     },
+    {
+      value: 'each',
+      label: 'Each',
+    },
   ];
 
 const Refrigerated = [
@@ -199,7 +203,7 @@ export default function AddIngredient() {
           ))}
         </TextField>
       </div>
-      <Button type="submit" disabled={!(userFormData.name && userFormData.quantity && userFormData.uom && userFormData.refrigerated)} style={styles.submitButton} variant="contained">Submit Ingredient</Button>
+      <Button type="submit" disabled={!(userFormData.name && userFormData.quantity && userFormData.uom)} style={styles.submitButton} variant="contained">Submit Ingredient</Button>
     </Box>
     )
 }
