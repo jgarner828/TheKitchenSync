@@ -44,7 +44,7 @@ const useResizeObserver = ref => {
       dimensions || wrapperRef.current.getBoundingClientRect();
 
     // stacks / layers
-    console.log(keys);
+
     const stackGenerator = stack()
       .keys(keys)
       .order(stackOrderAscending);

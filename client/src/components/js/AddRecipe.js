@@ -5,8 +5,9 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 
-import { useMutation } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { ADD_RECIPE } from "../../utils/mutations";
+import { ALL_PRODUCT } from "../../utils/queries"
 
 const Ingredients = [
   {
@@ -36,20 +37,19 @@ const styles = {
 
 
 export default function AddRecipe() {
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setRefrigerate(event.target.value);
-  // }
 
-  // const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setUOM(event.target.value);
-  // };
-
-  const [userFormData, setUserFormData] = React.useState({ name: '', instructions: '', minutes: 1, ingredients: [""] });
+  const  {loading, data}  = useQuery(ALL_PRODUCT);
   const [addRecipe] = useMutation(ADD_RECIPE);
+  const [userFormData, setUserFormData] = React.useState({ name: '', instructions: '', minutes: 1, ingredients: [""] });
+
   const [validated] = React.useState(false);
   const [showAlert, setShowAlert] = React.useState(false);
 
-  console.log(userFormData)
+  // this is your ingredient list Austin
+    console.log(data.products)
+
+
+
 
   const ingredientInputChange = (event) => {
       const { name, value } = event.target;
