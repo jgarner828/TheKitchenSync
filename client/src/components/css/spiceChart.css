@@ -1,27 +1,22 @@
 svg {
   display: block;
-  width: 100%;
-  height: 300px;
-  background: #f7f7f7;
+  width: 99%;
+  height: 250px;
+  background: white;
   overflow: visible;
-}
-
-svg rect.selection {
-  stroke: none;
-}
-
-/* #root {
-  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  height: 100vh;
   padding: 0 50px;
   text-align: center;
   box-sizing: border-box;
-} */
+}
+
+svg rect.selection {
+  stroke: none;
+}
 
 button {
   width: 100px;
