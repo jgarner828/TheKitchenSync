@@ -1,37 +1,72 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/spiceChart.css";
 import SpiceChart from "../js/SpiceChart";
 
-const allKeys = ["🥑", "🍌", "🍆"];
+
+const allKeys = ["ingredients"];
 
 const colors = {
-  "🥑": "green",
-  "🍌": "orange",
-  "🍆": "purple"
+  "ingredients": "blue"
 };
 
 function SpiceChartData() {
   const [keys, setKeys] = useState(allKeys);
-  const [data, setData] = useState([
-    {
-      year: 1980,
-      "🥑": 10,
-      "🍌": 20,
-      "🍆": 30
-    },
-    {
-      year: 1990,
-      "🥑": 20,
-      "🍌": 40,
-      "🍆": 60
-    },
-    {
-      year: 2000,
-      "🥑": 30,
-      "🍌": 45,
-      "🍆": 80
+  const [data, setData] = useState([]);
+
+  const getData=()=>{
+    fetch('./components/data/ChartData.json'
+    ,{
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
     }
-  ]);
+    )
+      .then(function(response){
+        console.log(response)
+        return response.json();
+      })
+      .then(function(myJson) {
+        console.log(myJson);
+        setData(myJson)
+      });
+  }
+  useEffect(()=>{
+    getData()
+  },[])
+  // console.log(ChartData);
+
+
+// const allKeys = ["🥑", "🍌", "🍆"];
+
+// const colors = {
+//   "🥑": "green",
+//   "🍌": "orange",
+//   "🍆": "purple"
+// };
+
+// function SpiceChartData() {
+//   const [keys, setKeys] = useState(allKeys);
+//   const [data, setData] = useState([
+//     {
+//       year: 1980,
+//       "🥑": 10,
+//       "🍌": 20,
+//       "🍆": 30
+//     },
+//     {
+//       year: 1990,
+//       "🥑": 20,
+//       "🍌": 40,
+//       "🍆": 60
+//     },
+//     {
+//       year: 2000,
+//       "🥑": 30,
+//       "🍌": 45,
+//       "🍆": 80
+//     }
+//   ]);
 
   return (
     <React.Fragment>
